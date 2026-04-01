@@ -1,18 +1,27 @@
 @US1
-  Feature: User should able to see Automation exercise page
-    Background: User is already on the Home page
-      Given User is on the Home page
-      Then User should see home page is visible and clickable
-      Given User click Click and SignUp button
-      Then User should see registration page is visible
-      When User enters userName,gmail adress information
-      And User click SignUp button
+Feature: Enables new users to create an account in the system using their personal information such as email and password.
 
+  Background:
+    Given User launches browser
+    And User navigates to url 'http://automationexercise.com'
+    And User verifies that home page is visible successfully
+    Then User clicks on 'Signup / Login' button
 
-
-    @US1-1
-    Scenario: User fill in her or his information on the registration page
-      Given User enters valid information to create account
+  Scenario:
+    Given User verifies 'New User Signup!' is visible
+    And User enters name and email address
+    And User clicks 'Signup' button
+    Then User verifies that 'ENTER ACCOUNT INFORMATION' is visible
+    And User fills details: Title, Name, Email, Password, Date of birth
+    And User selects checkbox 'Sign up for our newsletter!'
+    Then User selects checkbox 'Receive special offers from our partners!'
+    And User fills details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
+    And User clicks 'Create Account button'
+    Then User verifies that 'ACCOUNT CREATED!' is visible
+    And User clicks 'Continue' button
+    And User verifies that 'Logged in as username' is visible
+    And User clicks 'Delete Account' button
+    Then User verifies that 'ACCOUNT DELETED!' is visible and click 'Continue' button
 
 
 
